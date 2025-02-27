@@ -1,0 +1,12 @@
+{
+  "scripts": {
+    "start": "node whatsapp-code.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2",
+    "nodeom": "^0.0.1",
+    "qrcode": "^1.5.4",
+    "qrcode-terminal": "^0.12.0"
+  }
+}
