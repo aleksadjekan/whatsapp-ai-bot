@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Whatsapp QRCode</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <h1>Whatsapp QR Code</h1>
+    <div style="margin-bottom: 20px">
+      <button id="create-qr">Generate QR</button>
+    </div>
+    <img src="" alt="QR code" id="qr-img" style="display: none" />
+  </body>
+  <script>
+    const btn = document.getElementById("create-qr");
+    const img = document.getElementById("qr-img");
+
+    const loop = async () => {
+      const { data } = await axios.get("http://localhost:3000/qr_code");
+
+      img.style.display = "block";
+      img.src = data.qrCode;
+      setTimeout(loop, 1000);
+    };
+
+    btn.addEventListener("click", () => {
+      loop();
+    });
+  </script>
+</html>
